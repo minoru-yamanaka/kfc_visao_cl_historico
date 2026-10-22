@@ -896,6 +896,9 @@ html_content = f'''<!DOCTYPE html>
         <a href="kfc_gantt_roadmap_2026.png" download class="btn btn-primary" title="Baixar Gráfico em Alta Resolução">
           📥 Baixar Gráfico PNG
         </a>
+        <a href="KFC_2026_Roadmap_Dashboard.xlsx" download class="btn btn-primary" style="background-color: #107C41;" title="Baixar Planilha Excel com Formatação Condicional e Legenda">
+          📊 Baixar Excel (.xlsx)
+        </a>
       </div>
     </div>
   </header>
