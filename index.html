@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KFC 2026 — Roadmap de Expansão | Dashboard de Gerenciamento de Projetos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --kfc-red: #E4002B;
+      --kfc-dark-red: #A3080C;
+      --kfc-black: #111827;
+      
+      /* Cores das Regras de Negócio */
+      --color-purple: #8B5CF6;
+      --color-purple-hover: #7C3AED;
+      --color-green: #16A34A;
+      --color-green-hover: #15803D;
+      --color-red: #EF4444;
+      --color-red-hover: #DC2626;
+      --color-light-orange: #FB923C;
+      --color-light-orange-hover: #F97316;
+      --color-yellow: #EAB308;
+      --color-yellow-hover: #CA8A04;
+      --color-dark-green: #15803D;
+      --color-dark-green-hover: #166534;
+      --color-hatch: #94A3B8;
+
+      /* Tema Claro (Padrão) */
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-card-alt: #F1F5F9;
+      --border-color: #E2E8F0;
+      --border-focus: #CBD5E1;
+      --text-main: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --track-bg: #E2E8F0;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0B0F19;
+      --bg-card: #131C2E;
+      --bg-card-alt: #1E293B;
+      --border-color: #243047;
+      --border-focus: #384A6E;
+      --text-main: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.5);
+      --track-bg: #1E293B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 60px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Header & Branding */
+    header.dashboard-header {
+      background: linear-gradient(135deg, #111827 0%, #1F2937 60%, #374151 100%);
+      color: #FFFFFF;
+      padding: 24px 32px;
+      border-bottom: 4px solid var(--kfc-red);
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1700px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .kfc-logo-container {
+      width: 65px;
+      height: 65px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--kfc-red);
+      flex-shrink: 0;
+    }
+
+    .kfc-logo-container img, .kfc-logo-container svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #FFFFFF;
+    }
+
+    .badge-year {
+      background-color: var(--kfc-red);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .title-group p {
+      color: #9CA3AF;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--kfc-red);
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: var(--kfc-dark-red);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.22);
+    }
+
+    /* Main Container */
+    main.container {
+      max-width: 1700px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }
+
+    /* Executive KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .kpi-purple::before { background-color: var(--color-purple); }
+    .kpi-red::before { background-color: var(--color-red); }
+    .kpi-green::before { background-color: var(--color-green); }
+    .kpi-yellow::before { background-color: var(--color-yellow); }
+    .kpi-dark-green::before { background-color: var(--color-dark-green); }
+    .kpi-gray::before { background-color: var(--color-hatch); }
+
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background: var(--bg-card-alt);
+    }
+
+    .kpi-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 10px 0 4px;
+      line-height: 1;
+    }
+
+    .kpi-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Legenda Rigorosa de Cores */
+    .legend-panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .legend-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .legend-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+    }
+
+    .legend-stage-card {
+      background-color: var(--bg-card-alt);
+      border-radius: 8px;
+      padding: 14px 16px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stage-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stage-badge {
+      background: #111827;
+      color: #FFFFFF;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .legend-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .swatch.purple { background-color: var(--color-purple); }
+    .swatch.green { background-color: var(--color-green); }
+    .swatch.red { background-color: var(--color-red); }
+    .swatch.light-orange { background-color: var(--color-light-orange); }
+    .swatch.yellow { background-color: var(--color-yellow); }
+    .swatch.dark-green { background-color: var(--color-dark-green); }
+    .swatch.hatch {
+      background: repeating-linear-gradient(45deg, #94A3B8, #94A3B8 4px, #CBD5E1 4px, #CBD5E1 8px);
+    }
+
+    .rule-text {
+      color: var(--text-secondary);
+      line-height: 1.3;
+    }
+
+    .rule-text strong {
+      color: var(--text-main);
+    }
+
+    /* Filtros e Barra de Ações */
+    .toolbar-panel {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 9px 14px 9px 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--kfc-red);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    select.filter-select {
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    select.filter-select:focus {
+      border-color: var(--kfc-red);
+    }
+
+    .view-toggles {
+      display: flex;
+      background: var(--bg-page);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .view-btn {
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .view-btn.active {
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Gráfico de Gantt Container */
+    .gantt-section {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .gantt-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--bg-card-alt);
+    }
+
+    .gantt-header h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gantt-count-badge {
+      background-color: var(--kfc-red);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .gantt-table-container {
+      overflow-x: auto;
+      padding: 20px 24px;
+    }
+
+    /* Layout da Linha do Gantt */
+    .gantt-chart-wrapper {
+      min-width: 1250px;
+    }
+
+    /* Cabeçalho da Régua Temporal */
+    .gantt-ruler {
+      display: grid;
+      grid-template-columns: 290px 1fr 130px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ruler-ticks {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+      position: relative;
+    }
+
+    .ruler-tick {
+      position: relative;
+      text-align: center;
+    }
+
+    /* Linhas de Cada Shopping */
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 290px 1fr 130px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .gantt-row:hover {
+      background-color: var(--bg-card-alt);
+    }
+
+    .shopping-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-right: 15px;
+    }
+
+    .shop-index {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      width: 20px;
+    }
+
+    .shop-name-block {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .shop-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .shop-subinfo {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .fmt-pill {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .fmt-FC { color: #0284C7; border-color: #BAE6FD; background-color: #F0F9FF; }
+    .fmt-FS { color: #7C3AED; border-color: #DDD6FE; background-color: #F5F3FF; }
+    .fmt-IL { color: #D97706; border-color: #FDE68A; background-color: #FFFBEB; }
+
+    /* Barra Horizontal Empilhada */
+    .gantt-bar-track {
+      position: relative;
+      height: 38px;
+      background-color: var(--track-bg);
+      border-radius: 8px;
+      display: flex;
+      overflow: hidden;
+      margin: 0 10px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .bar-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: filter 0.15s ease, transform 0.15s ease;
+      cursor: pointer;
+      user-select: none;
+      box-sizing: border-box;
+      border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .bar-segment:last-child {
+      border-right: none;
+    }
+
+    .bar-segment:hover {
+      filter: brightness(1.12);
+      z-index: 5;
+    }
+
+    .bar-segment.purple { background-color: var(--color-purple); }
+    .bar-segment.green { background-color: var(--color-green); }
+    .bar-segment.red { background-color: var(--color-red); }
+    .bar-segment.light-orange { background-color: var(--color-light-orange); }
+    .bar-segment.yellow { background-color: var(--color-yellow); }
+    .bar-segment.dark-green { background-color: var(--color-dark-green); }
+    .bar-segment.hatch {
+      background: repeating-linear-gradient(45deg, #94A3B8, #94A3B8 5px, #64748B 5px, #64748B 10px);
+    }
+
+    .segment-label {
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      padding: 0 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-segment.yellow .segment-label,
+    .bar-segment.hatch .segment-label {
+      color: #111827;
+      text-shadow: none;
+    }
+
+    /* Total Acumulado */
+    .shopping-total {
+      text-align: right;
+      padding-left: 10px;
+    }
+
+    .total-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+      background-color: var(--bg-card-alt);
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    .total-badge.has-plan {
+      border-color: #F59E0B;
+      color: #D97706;
+      font-size: 12px;
+    }
+
+    /* Tooltip Customizado */
+    .custom-tooltip {
+      position: fixed;
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 12px;
+      pointer-events: none;
+      z-index: 1000;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      border: 1px solid #334155;
+      max-width: 340px;
+      line-height: 1.4;
+      display: none;
+    }
+
+    .tooltip-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: #38BDF8;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 4px;
+    }
+
+    .tooltip-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 3px;
+    }
+
+    .tooltip-val {
+      font-weight: 700;
+    }
+
+    /* Modal de Detalhes */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 700px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform 0.2s ease;
+      padding: 28px;
+    }
+
+    .modal-backdrop.open .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    .modal-timeline-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .modal-step-bullet {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .modal-step-info {
+      flex: 1;
+      background: var(--bg-card-alt);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Estilos de Impressão */
+    @media print {
+      header.dashboard-header {
+        position: static;
+        box-shadow: none;
+        border-bottom: 2px solid #000;
+      }
+      .toolbar-panel, .btn, .view-toggles, .search-box {
+        display: none !important;
+      }
+      .gantt-chart-wrapper {
+        min-width: 100% !important;
+      }
+      .gantt-row {
+        page-break-inside: avoid;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- Header Executivo -->
+  <header class="dashboard-header">
+    <div class="header-inner">
+      <div class="brand-section">
+        <div class="kfc-logo-container" title="KFC Brasil">
+          <img src="KFC_logo.svg" alt="KFC Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23E4002B\'/><text x=\'50\' y=\'58\' font-size=\'26\' font-weight=\'bold\' fill=\'white\' text-anchor=\'middle\'>KFC</text></svg>'">
+        </div>
+        <div class="title-group">
+          <h1>
+            KFC 2026 — Roadmap de Expansão
+            <span class="badge-year">ROADMAP 2026</span>
+          </h1>
+          <p>Painel de Controle e Monitoramento de Dias Acumulados por Shopping/Localidade (Gantt Horizontal Empilhado)</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" id="btnThemeToggle" title="Alternar Modo Escuro/Claro">
+          <span id="themeIcon">🌙</span> Tema Escuro
+        </button>
+        <button class="btn btn-secondary" onclick="window.print()" title="Imprimir Relatório Executivo">
+          🖨️ Imprimir / PDF
+        </button>
+        <a href="kfc_gantt_roadmap_2026.png" download class="btn btn-primary" title="Baixar Gráfico em Alta Resolução">
+          📥 Baixar Gráfico PNG
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI Summary Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card kpi-purple">
+        <div class="kpi-header">
+          <span class="kpi-title">Total de Projetos</span>
+          <div class="kpi-icon">🏬</div>
+        </div>
+        <div class="kpi-value" id="kpiTotal">19</div>
+        <div class="kpi-desc">Shoppings e lojas no pipeline de expansão 2026</div>
+      </div>
+
+      <div class="kpi-card kpi-purple">
+        <div class="kpi-header">
+          <span class="kpi-title">Antecipados na Etapa 1</span>
+          <div class="kpi-icon">⚡</div>
+        </div>
+        <div class="kpi-value" id="kpiAntecipados">6</div>
+        <div class="kpi-desc">CNPJ solicitado antes do contrato (< 0d — Roxo)</div>
+      </div>
+
+      <div class="kpi-card kpi-yellow">
+        <div class="kpi-header">
+          <span class="kpi-title">Alto Risco Inauguração</span>
+          <div class="kpi-icon">⚠️</div>
+        </div>
+        <div class="kpi-value" id="kpiAltoRisco">4</div>
+        <div class="kpi-desc">Etapa 4 < 90 dias restantes (Amarelo)</div>
+      </div>
+
+      <div class="kpi-card kpi-dark-green">
+        <div class="kpi-header">
+          <span class="kpi-title">Prazo Saudável</span>
+          <div class="kpi-icon">🛡️</div>
+        </div>
+        <div class="kpi-value" id="kpiSaudaveis">10</div>
+        <div class="kpi-desc">Etapa 4 com folga ≥ 90 dias (Verde Escuro)</div>
+      </div>
+
+      <div class="kpi-card kpi-gray">
+        <div class="kpi-header">
+          <span class="kpi-title">Com Plano de Ação</span>
+          <div class="kpi-icon">📋</div>
+        </div>
+        <div class="kpi-value" id="kpiPlanoAcao">5</div>
+        <div class="kpi-desc">Aguardando emissão ou SAP pendente</div>
+      </div>
+    </section>
+
+    <!-- Legenda Oficial Rigorosa de Cores -->
+    <section class="legend-panel">
+      <div class="legend-header">
+        <h3>📌 Legenda Oficial de Formatação Condicional de Cores</h3>
+        <span style="font-size: 12px; color: var(--text-muted);">Critérios pré-definidos para monitoramento de risco por etapa</span>
+      </div>
+
+      <div class="legend-grid">
+        <!-- Etapa 1 -->
+        <div class="legend-stage-card">
+          <div class="stage-title">
+            <span class="stage-badge">ETAPA 1</span>
+            <span>Contrato ➔ Solicitação do CNPJ</span>
+          </div>
+          <div class="legend-rules">
+            <div class="rule-item">
+              <span class="swatch purple"></span>
+              <span class="rule-text"><strong>Roxo:</strong> Dias < 0 (Solicitação feita antes do contrato para ganhar tempo)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch green"></span>
+              <span class="rule-text"><strong>Verde:</strong> ≤ 7 dias (No prazo)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch red"></span>
+              <span class="rule-text"><strong>Vermelho:</strong> > 7 dias (Atraso)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="legend-stage-card">
+          <div class="stage-title">
+            <span class="stage-badge">ETAPA 2</span>
+            <span>Solicitação ➔ Emissão do CNPJ</span>
+          </div>
+          <div class="legend-rules">
+            <div class="rule-item">
+              <span class="swatch green"></span>
+              <span class="rule-text"><strong>Verde:</strong> ≤ 30 dias (No prazo)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch red"></span>
+              <span class="rule-text"><strong>Vermelho:</strong> > 30 dias (Atraso)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch hatch"></span>
+              <span class="rule-text"><strong>Listrado:</strong> Plano de Ação / Em emissão</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="legend-stage-card">
+          <div class="stage-title">
+            <span class="stage-badge">ETAPA 3</span>
+            <span>Emissão CNPJ ➔ Criação no SAP</span>
+          </div>
+          <div class="legend-rules">
+            <div class="rule-item">
+              <span class="swatch light-orange"></span>
+              <span class="rule-text"><strong>Laranja Claro:</strong> ≤ 30 dias (No prazo)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch red"></span>
+              <span class="rule-text"><strong>Vermelho:</strong> > 30 dias (Atraso)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch hatch"></span>
+              <span class="rule-text"><strong>Listrado:</strong> Plano de Ação / Sem cadastro SAP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapa 4 -->
+        <div class="legend-stage-card">
+          <div class="stage-title">
+            <span class="stage-badge">ETAPA 4</span>
+            <span>Criação SAP ➔ Inauguração</span>
+          </div>
+          <div class="legend-rules">
+            <div class="rule-item">
+              <span class="swatch yellow"></span>
+              <span class="rule-text"><strong>Amarelo / Alerta:</strong> < 90 dias (Alto risco para a inauguração)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch dark-green"></span>
+              <span class="rule-text"><strong>Verde Escuro:</strong> ≥ 90 dias (Prazo seguro e saudável)</span>
+            </div>
+            <div class="rule-item">
+              <span class="swatch hatch"></span>
+              <span class="rule-text"><strong>Listrado:</strong> Plano de Ação em Aberto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Ferramentas / Filtros -->
+    <section class="toolbar-panel">
+      <div class="filter-group">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Buscar shopping ou praça..." autocomplete="off">
+        </div>
+
+        <select class="filter-select" id="formatFilter">
+          <option value="ALL">Todos os Formatos</option>
+          <option value="FC">Food Court (FC)</option>
+          <option value="FS">Free Standing (FS)</option>
+          <option value="IL">In Line (IL)</option>
+        </select>
+
+        <select class="filter-select" id="riskFilter">
+          <option value="ALL">Todos os Status de Risco</option>
+          <option value="PURPLE">⚡ Antecipação na Etapa 1 (Roxo)</option>
+          <option value="YELLOW">⚠️ Alto Risco Inauguração (< 90d)</option>
+          <option value="DELAY">🔴 Com Atrasos nas Etapas (Vermelho)</option>
+          <option value="PLAN">📋 Apenas com Plano de Ação</option>
+        </select>
+
+        <select class="filter-select" id="sortSelect">
+          <option value="ORIGINAL">Ordem Padrão da Planilha</option>
+          <option value="DAYS_DESC">Dias Acumulados (Maior ➔ Menor)</option>
+          <option value="DAYS_ASC">Dias Acumulados (Menor ➔ Maior)</option>
+          <option value="NAME">Nome do Shopping (A-Z)</option>
+          <option value="INAUG">Data de Inauguração (Cronológica)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <div class="view-toggles">
+          <button class="view-btn active" data-view="stacked" id="btnViewStacked">Gantt Empilhado</button>
+          <button class="view-btn" data-view="zero" id="btnViewZero">Marco Zero (Contrato = 0d)</button>
+        </div>
+        <button class="btn btn-secondary" id="btnExportCSV" title="Exportar dados para Excel/CSV">
+          📊 Exportar CSV
+        </button>
+      </div>
+    </section>
+
+    <!-- Gráfico de Gantt Horizontal Empilhado -->
+    <section class="gantt-section">
+      <div class="gantt-header">
+        <h2>
+          <span>Roadmap de Dias Acumulados por Shopping</span>
+          <span class="gantt-count-badge" id="visibleCountBadge">19 lojas</span>
+        </h2>
+        <div style="font-size: 13px; color: var(--text-muted);">
+          Clique em qualquer shopping para ver a ficha técnica e checklist completo de marcos
+        </div>
+      </div>
+
+      <div class="gantt-table-container">
+        <div class="gantt-chart-wrapper">
+          <!-- Régua Temporal de Dias -->
+          <div class="gantt-ruler">
+            <div>Shopping / Formato</div>
+            <div class="ruler-ticks" id="rulerTicksContainer">
+              <span class="ruler-tick">0d</span>
+              <span class="ruler-tick">50d</span>
+              <span class="ruler-tick">100d</span>
+              <span class="ruler-tick">150d</span>
+              <span class="ruler-tick">200d</span>
+              <span class="ruler-tick">250d</span>
+              <span class="ruler-tick">300d</span>
+            </div>
+            <div style="text-align: right;">Total Acumulado</div>
+          </div>
+
+          <!-- Linhas do Gantt Geradas Dinamicamente -->
+          <div id="ganttRowsContainer">
+            <!-- Injetado via Javascript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Tooltip Flutuante -->
+  <div id="customTooltip" class="custom-tooltip"></div>
+
+  <!-- Modal de Detalhes do Projeto -->
+  <div id="projectModal" class="modal-backdrop">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="modalShopName">Nome do Shopping</h2>
+          <span style="font-size: 13px; color: var(--text-muted);" id="modalShopFormat">Formato: FC | Inauguração: 2026-10-27</span>
+        </div>
+        <button class="modal-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div id="modalBody">
+        <!-- Conteúdo do modal montado via Javascript -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dados injetados com base rigorosa na planilha do KFC
+    const STORES = [{"id": 1, "loja": "PRAÇA DA REPÚBLICA (SP)", "formato": "IL", "datas": {"contrato": "2026-05-04", "solicitacao": "2026-03-27", "emissao": "2026-05-16 00:00:00", "sap": "2026-06-11 00:00:00", "inauguracao": "2026-10-27"}, "etapa1": {"dias": -38, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-38d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 50, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 26, "color": "#FB923C", "class": "light-orange", "name": "Laranja Claro", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa4": {"dias": 138, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 176, "todas_etapas_concluidas": true}, {"id": 2, "loja": "CAMPINA GRANDE", "formato": "FC", "datas": {"contrato": "2026-05-04", "solicitacao": "2026-05-26", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-10-30"}, "etapa1": {"dias": 22, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 37, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 34, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 86, "color": "#F59E0B", "class": "yellow-alert", "name": "Amarelo/Alerta", "status": "Alto Risco (< 90d)", "rule": "Alto risco para a inauguração (< 90 dias)"}, "total_acumulado": 179, "todas_etapas_concluidas": true}, {"id": 3, "loja": "RIO CLARO", "formato": "FS", "datas": {"contrato": "2026-03-23", "solicitacao": "2026-03-27", "emissao": "2026-05-07 00:00:00", "sap": "2026-06-11 00:00:00", "inauguracao": "2026-11-03"}, "etapa1": {"dias": 4, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 7d)", "rule": "No prazo (<= 7 dias)"}, "etapa2": {"dias": 41, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 35, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 145, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 225, "todas_etapas_concluidas": true}, {"id": 4, "loja": "RIOMAR KENNEDY", "formato": "FC", "datas": {"contrato": "2026-06-17", "solicitacao": "2026-06-01", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-09 00:00:00", "inauguracao": "2026-11-12"}, "etapa1": {"dias": -16, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-16d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 31, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 38, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 95, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 148, "todas_etapas_concluidas": true}, {"id": 5, "loja": "NORTH JOQUEI", "formato": "FC", "datas": {"contrato": "2026-05-15", "solicitacao": "2026-05-26", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-11-17"}, "etapa1": {"dias": 11, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 37, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 34, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 104, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 186, "todas_etapas_concluidas": true}, {"id": 6, "loja": "FC SHOPPING CURITIBA", "formato": "FC", "datas": {"contrato": "2026-06-22", "solicitacao": "2026-06-17", "emissao": "2026-07-29 00:00:00", "sap": "2026-09-10 00:00:00", "inauguracao": "2026-11-20"}, "etapa1": {"dias": -5, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-5d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 42, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 43, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 71, "color": "#F59E0B", "class": "yellow-alert", "name": "Amarelo/Alerta", "status": "Alto Risco (< 90d)", "rule": "Alto risco para a inauguração (< 90 dias)"}, "total_acumulado": 151, "todas_etapas_concluidas": true}, {"id": 7, "loja": "FC SHOPPING SÃO JOSÉ", "formato": "FC", "datas": {"contrato": "2026-05-08", "solicitacao": "2026-05-26", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-11-20"}, "etapa1": {"dias": 18, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 37, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 34, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 107, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 196, "todas_etapas_concluidas": true}, {"id": 8, "loja": "ELIAS YASBEK (EMBU DAS ARTES)", "formato": "FS", "datas": {"contrato": "2026-06-22", "solicitacao": "2026-05-21", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-11-26"}, "etapa1": {"dias": -32, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-32d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 42, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 34, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 113, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 157, "todas_etapas_concluidas": true}, {"id": 9, "loja": "SHOPPING RIO POTY", "formato": "FC", "datas": {"contrato": "2026-07-15", "solicitacao": "2026-07-31", "emissao": "2026-09-18 00:00:00", "sap": "2026-10-14 00:00:00", "inauguracao": "2026-11-30"}, "etapa1": {"dias": 16, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 49, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 26, "color": "#FB923C", "class": "light-orange", "name": "Laranja Claro", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa4": {"dias": 47, "color": "#F59E0B", "class": "yellow-alert", "name": "Amarelo/Alerta", "status": "Alto Risco (< 90d)", "rule": "Alto risco para a inauguração (< 90 dias)"}, "total_acumulado": 138, "todas_etapas_concluidas": true}, {"id": 10, "loja": "SH BURITI GUARÁÁ", "formato": "FC", "datas": {"contrato": "2026-05-14", "solicitacao": "2026-05-21", "emissao": "2026-07-01 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-12-07"}, "etapa1": {"dias": 7, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 7d)", "rule": "No prazo (<= 7 dias)"}, "etapa2": {"dias": 41, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 35, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 124, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 207, "todas_etapas_concluidas": true}, {"id": 11, "loja": "TERESINA SHOPPING", "formato": "FC", "datas": {"contrato": "2026-08-26", "solicitacao": "2026-09-17", "emissao": "2026-10-15 00:00:00", "sap": "Não Possui", "inauguracao": "2026-12-08"}, "etapa1": {"dias": 22, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 28, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa3": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa4": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "total_acumulado": 50, "todas_etapas_concluidas": false}, {"id": 12, "loja": "ITU", "formato": "FS", "datas": {"contrato": "2026-05-08", "solicitacao": "2026-03-27", "emissao": "2026-05-04 00:00:00", "sap": "2026-06-11 00:00:00", "inauguracao": "2026-12-18"}, "etapa1": {"dias": -42, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-42d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 38, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 38, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 190, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 224, "todas_etapas_concluidas": true}, {"id": 13, "loja": "BOTAFOGO PRAIA SHOPPING", "formato": "FC", "datas": {"contrato": "2026-08-26", "solicitacao": "2026-09-18", "emissao": "2026-10-15 00:00:00", "sap": "Não Possui", "inauguracao": "2026-12-21"}, "etapa1": {"dias": 23, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 27, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa3": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa4": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "total_acumulado": 50, "todas_etapas_concluidas": false}, {"id": 14, "loja": "BOULEVARD FEIRA DE SANTANA", "formato": "FC", "datas": {"contrato": "2026-08-31", "solicitacao": "2026-10-20", "emissao": "Não Possui", "sap": "Não Possui", "inauguracao": "2026-12-21"}, "etapa1": {"dias": 50, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa3": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa4": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "total_acumulado": 50, "todas_etapas_concluidas": false}, {"id": 15, "loja": "DUQUE DE CAXIAS (WASHINGTON LUIS)", "formato": "FS", "datas": {"contrato": "2026-04-30", "solicitacao": "2026-05-21", "emissao": "2026-07-02 00:00:00", "sap": "2026-08-05 00:00:00", "inauguracao": "2026-12-21"}, "etapa1": {"dias": 21, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 42, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 34, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 138, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 235, "todas_etapas_concluidas": true}, {"id": 16, "loja": "SUZANO", "formato": "FS", "datas": {"contrato": "2026-05-15", "solicitacao": "2026-06-29", "emissao": "2026-07-28 00:00:00", "sap": "2026-09-10 00:00:00", "inauguracao": "2026-12-22"}, "etapa1": {"dias": 45, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 29, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa3": {"dias": 44, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa4": {"dias": 103, "color": "#15803D", "class": "dark-green", "name": "Verde Escuro", "status": "Saudável (>= 90d)", "rule": "Prazo seguro e saudável (>= 90 dias)"}, "total_acumulado": 221, "todas_etapas_concluidas": true}, {"id": 17, "loja": "JK SHOPPING TAGUATINGA", "formato": "FC", "datas": {"contrato": "2026-10-02", "solicitacao": "2026-09-15", "emissao": "2026-10-15 00:00:00", "sap": "Não Possui", "inauguracao": "2026-12-23"}, "etapa1": {"dias": -17, "color": "#8B5CF6", "class": "purple", "name": "Roxo", "status": "Antecipado (-17d)", "rule": "Solicitação antes do contrato (ganho de tempo)"}, "etapa2": {"dias": 30, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa3": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa4": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "total_acumulado": 13, "todas_etapas_concluidas": false}, {"id": 18, "loja": "PERUÍBE", "formato": "FS", "datas": {"contrato": "2026-07-10", "solicitacao": "2026-07-27", "emissao": "2026-09-16 00:00:00", "sap": "2026-10-12 00:00:00", "inauguracao": "2026-12-28"}, "etapa1": {"dias": 17, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 7d)", "rule": "Atraso (> 7 dias)"}, "etapa2": {"dias": 51, "color": "#EF4444", "class": "red", "name": "Vermelho", "status": "Atraso (> 30d)", "rule": "Atraso (> 30 dias)"}, "etapa3": {"dias": 26, "color": "#FB923C", "class": "light-orange", "name": "Laranja Claro", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa4": {"dias": 77, "color": "#F59E0B", "class": "yellow-alert", "name": "Amarelo/Alerta", "status": "Alto Risco (< 90d)", "rule": "Alto risco para a inauguração (< 90 dias)"}, "total_acumulado": 171, "todas_etapas_concluidas": true}, {"id": 19, "loja": "ANDORINHA - SP", "formato": "FC", "datas": {"contrato": "2026-10-06", "solicitacao": "2026-10-06", "emissao": "2026-10-15 00:00:00", "sap": "Não Possui", "inauguracao": "2026-12-30"}, "etapa1": {"dias": 0, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 7d)", "rule": "No prazo (<= 7 dias)"}, "etapa2": {"dias": 9, "color": "#22C55E", "class": "green", "name": "Verde", "status": "No Prazo (<= 30d)", "rule": "No prazo (<= 30 dias)"}, "etapa3": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "etapa4": {"dias": "Plano de Ação", "color": "#94A3B8", "class": "gray", "name": "Cinza", "status": "Plano de Ação", "rule": "Plano de Ação / Pendente"}, "total_acumulado": 9, "todas_etapas_concluidas": false}];
+
+    let currentView = 'stacked'; // 'stacked' ou 'zero'
+    let currentTheme = 'light';
+
+    // Elementos DOM
+    const ganttContainer = document.getElementById('ganttRowsContainer');
+    const searchInput = document.getElementById('searchInput');
+    const formatFilter = document.getElementById('formatFilter');
+    const riskFilter = document.getElementById('riskFilter');
+    const sortSelect = document.getElementById('sortSelect');
+    const visibleCountBadge = document.getElementById('visibleCountBadge');
+    const tooltip = document.getElementById('customTooltip');
+    const modal = document.getElementById('projectModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const btnThemeToggle = document.getElementById('btnThemeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const btnViewStacked = document.getElementById('btnViewStacked');
+    const btnViewZero = document.getElementById('btnViewZero');
+    const rulerTicks = document.getElementById('rulerTicksContainer');
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGantt();
+      setupEventListeners();
+    });
+
+    function setupEventListeners() {
+      searchInput.addEventListener('input', renderGantt);
+      formatFilter.addEventListener('change', renderGantt);
+      riskFilter.addEventListener('change', renderGantt);
+      sortSelect.addEventListener('change', renderGantt);
+
+      btnViewStacked.addEventListener('click', () => {
+        currentView = 'stacked';
+        btnViewStacked.classList.add('active');
+        btnViewZero.classList.remove('active');
+        updateRuler();
+        renderGantt();
+      });
+
+      btnViewZero.addEventListener('click', () => {
+        currentView = 'zero';
+        btnViewZero.classList.add('active');
+        btnViewStacked.classList.remove('active');
+        updateRuler();
+        renderGantt();
+      });
+
+      btnThemeToggle.addEventListener('click', toggleTheme);
+
+      modalCloseBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      document.getElementById('btnExportCSV').addEventListener('click', exportCSV);
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', currentTheme);
+      themeIcon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+      btnThemeToggle.childNodes[2].textContent = currentTheme === 'light' ? ' Tema Escuro' : ' Tema Claro';
+    }
+
+    function updateRuler() {
+      if (currentView === 'stacked') {
+        rulerTicks.innerHTML = `
+          <span class="ruler-tick">0d</span>
+          <span class="ruler-tick">50d</span>
+          <span class="ruler-tick">100d</span>
+          <span class="ruler-tick">150d</span>
+          <span class="ruler-tick">200d</span>
+          <span class="ruler-tick">250d</span>
+          <span class="ruler-tick">300d</span>
+        `;
+      } else {
+        rulerTicks.innerHTML = `
+          <span class="ruler-tick" style="color: var(--color-purple);">-50d (Antecipação)</span>
+          <span class="ruler-tick" style="color: var(--kfc-red); font-weight: 800;">0d (Contrato)</span>
+          <span class="ruler-tick">+50d</span>
+          <span class="ruler-tick">+100d</span>
+          <span class="ruler-tick">+150d</span>
+          <span class="ruler-tick">+200d</span>
+          <span class="ruler-tick">+250d</span>
+        `;
+      }
+    }
+
+    function filterAndSortStores() {
+      const query = searchInput.value.toLowerCase().trim();
+      const fmt = formatFilter.value;
+      const risk = riskFilter.value;
+      const sort = sortSelect.value;
+
+      let list = STORES.filter(s => {
+        if (query && !s.loja.toLowerCase().includes(query)) return false;
+        if (fmt !== 'ALL' && s.formato !== fmt) return false;
+        if (risk === 'PURPLE' && s.etapa1.class !== 'purple') return false;
+        if (risk === 'YELLOW' && s.etapa4.class !== 'yellow-alert') return false;
+        if (risk === 'DELAY' && !(s.etapa1.class === 'red' || s.etapa2.class === 'red' || s.etapa3.class === 'red')) return false;
+        if (risk === 'PLAN' && s.todas_etapas_concluidas) return false;
+        return true;
+      });
+
+      // Ordenação
+      if (sort === 'DAYS_DESC') {
+        list.sort((a, b) => b.total_acumulado - a.total_acumulado);
+      } else if (sort === 'DAYS_ASC') {
+        list.sort((a, b) => a.total_acumulado - b.total_acumulado);
+      } else if (sort === 'NAME') {
+        list.sort((a, b) => a.loja.localeCompare(b.loja));
+      } else if (sort === 'INAUG') {
+        list.sort((a, b) => a.datas.inauguracao.localeCompare(b.datas.inauguracao));
+      }
+
+      return list;
+    }
+
+    function renderGantt() {
+      const list = filterAndSortStores();
+      visibleCountBadge.textContent = `${list.length} ${list.length === 1 ? 'loja' : 'lojas'}`;
+
+      if (list.length === 0) {
+        ganttContainer.innerHTML = `
+          <div style="text-align: center; padding: 50px 20px; color: var(--text-muted);">
+            <div style="font-size: 38px; margin-bottom: 10px;">🔍</div>
+            <div style="font-weight: 700; font-size: 16px;">Nenhum shopping encontrado com os filtros selecionados.</div>
+            <div style="font-size: 13px; margin-top: 4px;">Tente limpar o campo de busca ou alterar os filtros de formato e risco.</div>
+          </div>
+        `;
+        return;
+      }
+
+      const maxScale = 290; // escala de referência máxima de dias
+
+      let html = '';
+      list.forEach((s, idx) => {
+        const fmtClass = `fmt-${s.formato}`;
+        const totalLabel = s.todas_etapas_concluidas ? `${s.total_acumulado}d total` : `${s.total_acumulado}d + Ação`;
+        const totalBadgeClass = s.todas_etapas_concluidas ? '' : 'has-plan';
+
+        // Tratamento dos segmentos
+        const e1 = s.etapa1;
+        const e2 = s.etapa2;
+        const e3 = s.etapa3;
+        const e4 = s.etapa4;
+
+        if (currentView === 'stacked') {
+          // Visão Empilhada Padrão de Dias Acumulados
+          // Largura percentual proporcional ao número de dias
+          const w1 = typeof e1.dias === 'number' ? Math.max(3, Math.abs(e1.dias)) : 10;
+          const w2 = typeof e2.dias === 'number' ? Math.max(3, e2.dias) : 22;
+          const w3 = typeof e3.dias === 'number' ? Math.max(3, e3.dias) : 22;
+          const w4 = typeof e4.dias === 'number' ? Math.max(3, e4.dias) : 22;
+
+          const totalWidthDays = w1 + w2 + w3 + w4;
+          const barWidthPercent = Math.min(98, (totalWidthDays / maxScale) * 100);
+
+          const pct1 = (w1 / totalWidthDays) * 100;
+          const pct2 = (w2 / totalWidthDays) * 100;
+          const pct3 = (w3 / totalWidthDays) * 100;
+          const pct4 = (w4 / totalWidthDays) * 100;
+
+          const e1Label = typeof e1.dias === 'number' ? `${e1.dias}d` : e1.dias;
+          const e2Label = typeof e2.dias === 'number' ? `${e2.dias}d` : 'Plano Ação';
+          const e3Label = typeof e3.dias === 'number' ? `${e3.dias}d` : 'Plano Ação';
+          const e4Label = typeof e4.dias === 'number' ? `${e4.dias}d` : 'Plano Ação';
+
+          html += `
+            <div class="gantt-row" onclick="openShopModal(${s.id})">
+              <div class="shopping-meta">
+                <span class="shop-index">${idx + 1}</span>
+                <div class="shop-name-block">
+                  <span class="shop-name" title="${s.loja}">${s.loja}</span>
+                  <div class="shop-subinfo">
+                    <span class="fmt-pill ${fmtClass}">${s.formato}</span>
+                    <span>Inaug: ${formatDate(s.datas.inauguracao)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gantt-bar-track" style="width: ${barWidthPercent}%;">
+                <!-- Etapa 1 -->
+                <div class="bar-segment ${e1.class}" style="width: ${pct1}%;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 1: Contrato ➔ Solicitação CNPJ', '${e1Label}', '${e1.status}', '${e1.rule}', 'Contrato: ${formatDate(s.datas.contrato)} | Solic: ${formatDate(s.datas.solicitacao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e1Label}</span>
+                </div>
+
+                <!-- Etapa 2 -->
+                <div class="bar-segment ${e2.class}" style="width: ${pct2}%;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 2: Solicitação ➔ Emissão CNPJ', '${e2Label}', '${e2.status}', '${e2.rule}', 'Solic: ${formatDate(s.datas.solicitacao)} | Emissão: ${formatDate(s.datas.emissao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e2Label}</span>
+                </div>
+
+                <!-- Etapa 3 -->
+                <div class="bar-segment ${e3.class}" style="width: ${pct3}%;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 3: Emissão CNPJ ➔ Criação SAP', '${e3Label}', '${e3.status}', '${e3.rule}', 'Emissão: ${formatDate(s.datas.emissao)} | SAP: ${formatDate(s.datas.sap)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e3Label}</span>
+                </div>
+
+                <!-- Etapa 4 -->
+                <div class="bar-segment ${e4.class}" style="width: ${pct4}%;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 4: Criação SAP ➔ Inauguração', '${e4Label}', '${e4.status}', '${e4.rule}', 'SAP: ${formatDate(s.datas.sap)} | Inauguração: ${formatDate(s.datas.inauguracao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e4Label}</span>
+                </div>
+              </div>
+
+              <div class="shopping-total">
+                <span class="total-badge ${totalBadgeClass}" title="Total de dias acumulados na evolução das 4 etapas">${totalLabel}</span>
+              </div>
+            </div>
+          `;
+        } else {
+          // Visão Marco Zero (Alinhada no Contrato = 0d)
+          // Eixo com offset para a esquerda se Etapa 1 < 0d
+          const zeroOffsetPercent = 20; // 20% do track representa a margem à esquerda de 0d
+          const isNegative = typeof e1.dias === 'number' && e1.dias < 0;
+          const e1Days = typeof e1.dias === 'number' ? e1.dias : 0;
+          const e2Days = typeof e2.dias === 'number' ? e2.dias : 20;
+          const e3Days = typeof e3.dias === 'number' ? e3.dias : 20;
+          const e4Days = typeof e4.dias === 'number' ? e4.dias : 20;
+
+          // Escala: 1 dia = ~0.26%
+          const scalePxPerDay = 0.28;
+          const e1W = Math.max(3, Math.abs(e1Days)) * scalePxPerDay;
+          const e2W = Math.max(3, e2Days) * scalePxPerDay;
+          const e3W = Math.max(3, e3Days) * scalePxPerDay;
+          const e4W = Math.max(3, e4Days) * scalePxPerDay;
+
+          const e1Left = isNegative ? (zeroOffsetPercent - e1W) : zeroOffsetPercent;
+          const e2Left = isNegative ? zeroOffsetPercent : (zeroOffsetPercent + e1W);
+          const e3Left = e2Left + e2W;
+          const e4Left = e3Left + e3W;
+
+          const e1Label = typeof e1.dias === 'number' ? `${e1.dias}d` : e1.dias;
+          const e2Label = typeof e2.dias === 'number' ? `${e2.dias}d` : 'Plano Ação';
+          const e3Label = typeof e3.dias === 'number' ? `${e3.dias}d` : 'Plano Ação';
+          const e4Label = typeof e4.dias === 'number' ? `${e4.dias}d` : 'Plano Ação';
+
+          html += `
+            <div class="gantt-row" onclick="openShopModal(${s.id})">
+              <div class="shopping-meta">
+                <span class="shop-index">${idx + 1}</span>
+                <div class="shop-name-block">
+                  <span class="shop-name" title="${s.loja}">${s.loja}</span>
+                  <div class="shop-subinfo">
+                    <span class="fmt-pill ${fmtClass}">${s.formato}</span>
+                    <span>Inaug: ${formatDate(s.datas.inauguracao)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gantt-bar-track" style="width: 98%; position: relative;">
+                <!-- Linha de Marco Zero (Contrato) -->
+                <div style="position: absolute; left: ${zeroOffsetPercent}%; top: 0; bottom: 0; width: 2px; background-color: var(--kfc-red); z-index: 10; opacity: 0.85;" title="Marco Zero: Assinatura do Contrato"></div>
+
+                <!-- Etapa 1 -->
+                <div class="bar-segment ${e1.class}" style="position: absolute; left: ${e1Left}%; width: ${e1W}%; border-radius: 4px;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 1: Contrato ➔ Solicitação CNPJ', '${e1Label}', '${e1.status}', '${e1.rule}', 'Contrato: ${formatDate(s.datas.contrato)} | Solic: ${formatDate(s.datas.solicitacao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e1Label}</span>
+                </div>
+
+                <!-- Etapa 2 -->
+                <div class="bar-segment ${e2.class}" style="position: absolute; left: ${e2Left}%; width: ${e2W}%; border-radius: 4px;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 2: Solicitação ➔ Emissão CNPJ', '${e2Label}', '${e2.status}', '${e2.rule}', 'Solic: ${formatDate(s.datas.solicitacao)} | Emissão: ${formatDate(s.datas.emissao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e2Label}</span>
+                </div>
+
+                <!-- Etapa 3 -->
+                <div class="bar-segment ${e3.class}" style="position: absolute; left: ${e3Left}%; width: ${e3W}%; border-radius: 4px;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 3: Emissão CNPJ ➔ Criação SAP', '${e3Label}', '${e3.status}', '${e3.rule}', 'Emissão: ${formatDate(s.datas.emissao)} | SAP: ${formatDate(s.datas.sap)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e3Label}</span>
+                </div>
+
+                <!-- Etapa 4 -->
+                <div class="bar-segment ${e4.class}" style="position: absolute; left: ${e4Left}%; width: ${e4W}%; border-radius: 4px;"
+                     onmouseenter="showTooltip(event, '${s.loja}', 'Etapa 4: Criação SAP ➔ Inauguração', '${e4Label}', '${e4.status}', '${e4.rule}', 'SAP: ${formatDate(s.datas.sap)} | Inauguração: ${formatDate(s.datas.inauguracao)}')"
+                     onmouseleave="hideTooltip()">
+                  <span class="segment-label">${e4Label}</span>
+                </div>
+              </div>
+
+              <div class="shopping-total">
+                <span class="total-badge ${totalBadgeClass}">${totalLabel}</span>
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      ganttContainer.innerHTML = html;
+    }
+
+    function formatDate(dtStr) {
+      if (!dtStr) return '—';
+      if (dtStr === 'Não Possui' || dtStr === 'Plano de Ação') return dtStr;
+      const clean = dtStr.substring(0, 10);
+      const parts = clean.split('-');
+      if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dtStr;
+    }
+
+    function showTooltip(e, storeName, stageTitle, daysVal, status, rule, datesInfo) {
+      tooltip.innerHTML = `
+        <div class="tooltip-title">${storeName}</div>
+        <div style="font-weight: 700; margin-bottom: 4px;">${stageTitle}</div>
+        <div class="tooltip-row">
+          <span>Duração:</span>
+          <span class="tooltip-val">${daysVal}</span>
+        </div>
+        <div class="tooltip-row">
+          <span>Classificação:</span>
+          <span class="tooltip-val">${status}</span>
+        </div>
+        <div class="tooltip-row" style="color: #94A3B8; font-size: 11px; margin-top: 4px;">
+          <span>Regra: ${rule}</span>
+        </div>
+        <div style="margin-top: 6px; padding-top: 6px; border-top: 1px solid #334155; font-size: 11px; color: #E2E8F0;">
+          ${datesInfo}
+        </div>
+      `;
+      tooltip.style.display = 'block';
+      moveTooltip(e);
+      document.addEventListener('mousemove', moveTooltip);
+    }
+
+    function moveTooltip(e) {
+      const padding = 15;
+      let left = e.clientX + padding;
+      let top = e.clientY + padding;
+
+      if (left + 350 > window.innerWidth) {
+        left = e.clientX - 350 - padding;
+      }
+      if (top + 200 > window.innerHeight) {
+        top = e.clientY - 200 - padding;
+      }
+
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+    }
+
+    function hideTooltip() {
+      tooltip.style.display = 'none';
+      document.removeEventListener('mousemove', moveTooltip);
+    }
+
+    function openShopModal(shopId) {
+      const shop = STORES.find(s => s.id === shopId);
+      if (!shop) return;
+
+      document.getElementById('modalShopName').textContent = shop.loja;
+      document.getElementById('modalShopFormat').textContent = `Formato: ${shop.formato} | Inauguração Prevista: ${formatDate(shop.datas.inauguracao)} | Total Acumulado: ${shop.total_acumulado} dias`;
+
+      const stages = [
+        { num: 1, title: 'Etapa 1: Contrato até Solicitação do CNPJ', data: shop.etapa1, de: shop.datas.contrato, ate: shop.datas.solicitacao, deNome: 'Assinatura Contrato', ateNome: 'Solicitação CNPJ' },
+        { num: 2, title: 'Etapa 2: Solicitação até Emissão do CNPJ', data: shop.etapa2, de: shop.datas.solicitacao, ate: shop.datas.emissao, deNome: 'Solicitação CNPJ', ateNome: 'Emissão CNPJ' },
+        { num: 3, title: 'Etapa 3: Emissão do CNPJ até Criação no SAP', data: shop.etapa3, de: shop.datas.emissao, ate: shop.datas.sap, deNome: 'Emissão CNPJ', ateNome: 'Criação SAP' },
+        { num: 4, title: 'Etapa 4: Criação no SAP até a Inauguração', data: shop.etapa4, de: shop.datas.sap, ate: shop.datas.inauguracao, deNome: 'Criação SAP', ateNome: 'Inauguração Oficial' }
+      ];
+
+      let bodyHtml = '<div style="margin-top: 10px;">';
+      stages.forEach(st => {
+        const color = st.data.color || '#94A3B8';
+        const daysTxt = typeof st.data.dias === 'number' ? `${st.data.dias} dias` : st.data.dias;
+        bodyHtml += `
+          <div class="modal-timeline-step">
+            <div class="modal-step-bullet" style="background-color: ${color};">
+              ${st.num}
+            </div>
+            <div class="modal-step-info">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <strong style="color: var(--text-main); font-size: 14px;">${st.title}</strong>
+                <span style="font-weight: 800; font-size: 13px; color: ${color};">${daysTxt}</span>
+              </div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px;">
+                <strong>Status:</strong> ${st.data.status} — <em>${st.data.rule}</em>
+              </div>
+              <div style="font-size: 11.5px; color: var(--text-muted);">
+                Marcos: ${st.deNome} (${formatDate(st.de)}) ➔ ${st.ateNome} (${formatDate(st.ate)})
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      bodyHtml += `
+        <div style="background-color: var(--bg-card-alt); border-radius: 8px; padding: 14px; margin-top: 15px; border: 1px dashed var(--border-color);">
+          <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px;">Resumo Executivo do Projeto:</div>
+          <p style="font-size: 12.5px; color: var(--text-secondary);">
+            ${getShopExecutiveDiagnostic(shop)}
+          </p>
+        </div>
+      </div>`;
+
+      document.getElementById('modalBody').innerHTML = bodyHtml;
+      modal.classList.add('open');
+    }
+
+    function getShopExecutiveDiagnostic(shop) {
+      const e1 = shop.etapa1;
+      const e4 = shop.etapa4;
+      let notes = [];
+
+      if (e1.class === 'purple') {
+        notes.push(`Ganho estratégico de ${Math.abs(e1.dias)} dias ao solicitar CNPJ antes da assinatura do contrato.`);
+      } else if (e1.class === 'red') {
+        notes.push(`Atraso de ${e1.dias} dias na solicitação do CNPJ após o contrato.`);
+      }
+
+      if (shop.etapa2.class === 'red') {
+        notes.push(`Gargalo burocrático na emissão do CNPJ (${shop.etapa2.dias} dias decorridos).`);
+      }
+
+      if (shop.etapa3.class === 'red') {
+        notes.push(`Atraso crítico na criação do código SAP (${shop.etapa3.dias} dias).`);
+      }
+
+      if (e4.class === 'yellow-alert') {
+        notes.push(`ALERTA MÁXIMO: Prazo entre SAP e inauguração inferior a 90 dias (${e4.dias}d), exigindo aceleração imediata de obras e suprimentos.`);
+      } else if (e4.class === 'dark-green') {
+        notes.push(`Janela de implantação confortável e saudável (${e4.dias} dias).`);
+      }
+
+      if (!shop.todas_etapas_concluidas) {
+        notes.push(`Projeto com pendências de SAP/Emissão exigindo acompanhamento via Plano de Ação.`);
+      }
+
+      return notes.join(' ') || 'Projeto em andamento conforme o cronograma planejado.';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+    }
+
+    function exportCSV() {
+      const headers = ['Loja', 'Formato', 'Contrato', 'Solicitacao CNPJ', 'Emissao CNPJ', 'Criacao SAP', 'Inauguracao', 'Dias E1', 'Status E1', 'Dias E2', 'Status E2', 'Dias E3', 'Status E3', 'Dias E4', 'Status E4', 'Total Dias Acumulados'];
+      
+      const rows = STORES.map(s => [
+        `"${s.loja}"`,
+        s.formato,
+        s.datas.contrato,
+        s.datas.solicitacao,
+        s.datas.emissao,
+        s.datas.sap,
+        s.datas.inauguracao,
+        s.etapa1.dias,
+        `"${s.etapa1.status}"`,
+        s.etapa2.dias,
+        `"${s.etapa2.status}"`,
+        s.etapa3.dias,
+        `"${s.etapa3.status}"`,
+        s.etapa4.dias,
+        `"${s.etapa4.status}"`,
+        s.total_acumulado
+      ]);
+
+      const csvContent = 'data:text/csv;charset=utf-8,﻿' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', 'kfc_roadmap_expansao_2026.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>

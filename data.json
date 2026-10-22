@@ -1,0 +1,876 @@
+[
+  {
+    "id": 1,
+    "loja": "PRAÇA DA REPÚBLICA (SP)",
+    "formato": "IL",
+    "datas": {
+      "contrato": "2026-05-04",
+      "solicitacao": "2026-03-27",
+      "emissao": "2026-05-16 00:00:00",
+      "sap": "2026-06-11 00:00:00",
+      "inauguracao": "2026-10-27"
+    },
+    "etapa1": {
+      "dias": -38,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-38d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 50,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 26,
+      "color": "#FB923C",
+      "class": "light-orange",
+      "name": "Laranja Claro",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa4": {
+      "dias": 138,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 176,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 2,
+    "loja": "CAMPINA GRANDE",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-05-04",
+      "solicitacao": "2026-05-26",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-10-30"
+    },
+    "etapa1": {
+      "dias": 22,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 37,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 34,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 86,
+      "color": "#F59E0B",
+      "class": "yellow-alert",
+      "name": "Amarelo/Alerta",
+      "status": "Alto Risco (< 90d)",
+      "rule": "Alto risco para a inauguração (< 90 dias)"
+    },
+    "total_acumulado": 179,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 3,
+    "loja": "RIO CLARO",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-03-23",
+      "solicitacao": "2026-03-27",
+      "emissao": "2026-05-07 00:00:00",
+      "sap": "2026-06-11 00:00:00",
+      "inauguracao": "2026-11-03"
+    },
+    "etapa1": {
+      "dias": 4,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 7d)",
+      "rule": "No prazo (<= 7 dias)"
+    },
+    "etapa2": {
+      "dias": 41,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 35,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 145,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 225,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 4,
+    "loja": "RIOMAR KENNEDY",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-06-17",
+      "solicitacao": "2026-06-01",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-09 00:00:00",
+      "inauguracao": "2026-11-12"
+    },
+    "etapa1": {
+      "dias": -16,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-16d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 31,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 38,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 95,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 148,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 5,
+    "loja": "NORTH JOQUEI",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-05-15",
+      "solicitacao": "2026-05-26",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-11-17"
+    },
+    "etapa1": {
+      "dias": 11,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 37,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 34,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 104,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 186,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 6,
+    "loja": "FC SHOPPING CURITIBA",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-06-22",
+      "solicitacao": "2026-06-17",
+      "emissao": "2026-07-29 00:00:00",
+      "sap": "2026-09-10 00:00:00",
+      "inauguracao": "2026-11-20"
+    },
+    "etapa1": {
+      "dias": -5,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-5d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 42,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 43,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 71,
+      "color": "#F59E0B",
+      "class": "yellow-alert",
+      "name": "Amarelo/Alerta",
+      "status": "Alto Risco (< 90d)",
+      "rule": "Alto risco para a inauguração (< 90 dias)"
+    },
+    "total_acumulado": 151,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 7,
+    "loja": "FC SHOPPING SÃO JOSÉ",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-05-08",
+      "solicitacao": "2026-05-26",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-11-20"
+    },
+    "etapa1": {
+      "dias": 18,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 37,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 34,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 107,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 196,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 8,
+    "loja": "ELIAS YASBEK (EMBU DAS ARTES)",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-06-22",
+      "solicitacao": "2026-05-21",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-11-26"
+    },
+    "etapa1": {
+      "dias": -32,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-32d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 42,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 34,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 113,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 157,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 9,
+    "loja": "SHOPPING RIO POTY",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-07-15",
+      "solicitacao": "2026-07-31",
+      "emissao": "2026-09-18 00:00:00",
+      "sap": "2026-10-14 00:00:00",
+      "inauguracao": "2026-11-30"
+    },
+    "etapa1": {
+      "dias": 16,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 49,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 26,
+      "color": "#FB923C",
+      "class": "light-orange",
+      "name": "Laranja Claro",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa4": {
+      "dias": 47,
+      "color": "#F59E0B",
+      "class": "yellow-alert",
+      "name": "Amarelo/Alerta",
+      "status": "Alto Risco (< 90d)",
+      "rule": "Alto risco para a inauguração (< 90 dias)"
+    },
+    "total_acumulado": 138,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 10,
+    "loja": "SH BURITI GUARÁÁ",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-05-14",
+      "solicitacao": "2026-05-21",
+      "emissao": "2026-07-01 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-12-07"
+    },
+    "etapa1": {
+      "dias": 7,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 7d)",
+      "rule": "No prazo (<= 7 dias)"
+    },
+    "etapa2": {
+      "dias": 41,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 35,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 124,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 207,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 11,
+    "loja": "TERESINA SHOPPING",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-08-26",
+      "solicitacao": "2026-09-17",
+      "emissao": "2026-10-15 00:00:00",
+      "sap": "Não Possui",
+      "inauguracao": "2026-12-08"
+    },
+    "etapa1": {
+      "dias": 22,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 28,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa3": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa4": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "total_acumulado": 50,
+    "todas_etapas_concluidas": false
+  },
+  {
+    "id": 12,
+    "loja": "ITU",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-05-08",
+      "solicitacao": "2026-03-27",
+      "emissao": "2026-05-04 00:00:00",
+      "sap": "2026-06-11 00:00:00",
+      "inauguracao": "2026-12-18"
+    },
+    "etapa1": {
+      "dias": -42,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-42d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 38,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 38,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 190,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 224,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 13,
+    "loja": "BOTAFOGO PRAIA SHOPPING",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-08-26",
+      "solicitacao": "2026-09-18",
+      "emissao": "2026-10-15 00:00:00",
+      "sap": "Não Possui",
+      "inauguracao": "2026-12-21"
+    },
+    "etapa1": {
+      "dias": 23,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 27,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa3": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa4": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "total_acumulado": 50,
+    "todas_etapas_concluidas": false
+  },
+  {
+    "id": 14,
+    "loja": "BOULEVARD FEIRA DE SANTANA",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-08-31",
+      "solicitacao": "2026-10-20",
+      "emissao": "Não Possui",
+      "sap": "Não Possui",
+      "inauguracao": "2026-12-21"
+    },
+    "etapa1": {
+      "dias": 50,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa3": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa4": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "total_acumulado": 50,
+    "todas_etapas_concluidas": false
+  },
+  {
+    "id": 15,
+    "loja": "DUQUE DE CAXIAS (WASHINGTON LUIS)",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-04-30",
+      "solicitacao": "2026-05-21",
+      "emissao": "2026-07-02 00:00:00",
+      "sap": "2026-08-05 00:00:00",
+      "inauguracao": "2026-12-21"
+    },
+    "etapa1": {
+      "dias": 21,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 42,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 34,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 138,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 235,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 16,
+    "loja": "SUZANO",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-05-15",
+      "solicitacao": "2026-06-29",
+      "emissao": "2026-07-28 00:00:00",
+      "sap": "2026-09-10 00:00:00",
+      "inauguracao": "2026-12-22"
+    },
+    "etapa1": {
+      "dias": 45,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 29,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa3": {
+      "dias": 44,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa4": {
+      "dias": 103,
+      "color": "#15803D",
+      "class": "dark-green",
+      "name": "Verde Escuro",
+      "status": "Saudável (>= 90d)",
+      "rule": "Prazo seguro e saudável (>= 90 dias)"
+    },
+    "total_acumulado": 221,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 17,
+    "loja": "JK SHOPPING TAGUATINGA",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-10-02",
+      "solicitacao": "2026-09-15",
+      "emissao": "2026-10-15 00:00:00",
+      "sap": "Não Possui",
+      "inauguracao": "2026-12-23"
+    },
+    "etapa1": {
+      "dias": -17,
+      "color": "#8B5CF6",
+      "class": "purple",
+      "name": "Roxo",
+      "status": "Antecipado (-17d)",
+      "rule": "Solicitação antes do contrato (ganho de tempo)"
+    },
+    "etapa2": {
+      "dias": 30,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa3": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa4": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "total_acumulado": 13,
+    "todas_etapas_concluidas": false
+  },
+  {
+    "id": 18,
+    "loja": "PERUÍBE",
+    "formato": "FS",
+    "datas": {
+      "contrato": "2026-07-10",
+      "solicitacao": "2026-07-27",
+      "emissao": "2026-09-16 00:00:00",
+      "sap": "2026-10-12 00:00:00",
+      "inauguracao": "2026-12-28"
+    },
+    "etapa1": {
+      "dias": 17,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 7d)",
+      "rule": "Atraso (> 7 dias)"
+    },
+    "etapa2": {
+      "dias": 51,
+      "color": "#EF4444",
+      "class": "red",
+      "name": "Vermelho",
+      "status": "Atraso (> 30d)",
+      "rule": "Atraso (> 30 dias)"
+    },
+    "etapa3": {
+      "dias": 26,
+      "color": "#FB923C",
+      "class": "light-orange",
+      "name": "Laranja Claro",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa4": {
+      "dias": 77,
+      "color": "#F59E0B",
+      "class": "yellow-alert",
+      "name": "Amarelo/Alerta",
+      "status": "Alto Risco (< 90d)",
+      "rule": "Alto risco para a inauguração (< 90 dias)"
+    },
+    "total_acumulado": 171,
+    "todas_etapas_concluidas": true
+  },
+  {
+    "id": 19,
+    "loja": "ANDORINHA - SP",
+    "formato": "FC",
+    "datas": {
+      "contrato": "2026-10-06",
+      "solicitacao": "2026-10-06",
+      "emissao": "2026-10-15 00:00:00",
+      "sap": "Não Possui",
+      "inauguracao": "2026-12-30"
+    },
+    "etapa1": {
+      "dias": 0,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 7d)",
+      "rule": "No prazo (<= 7 dias)"
+    },
+    "etapa2": {
+      "dias": 9,
+      "color": "#22C55E",
+      "class": "green",
+      "name": "Verde",
+      "status": "No Prazo (<= 30d)",
+      "rule": "No prazo (<= 30 dias)"
+    },
+    "etapa3": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "etapa4": {
+      "dias": "Plano de Ação",
+      "color": "#94A3B8",
+      "class": "gray",
+      "name": "Cinza",
+      "status": "Plano de Ação",
+      "rule": "Plano de Ação / Pendente"
+    },
+    "total_acumulado": 9,
+    "todas_etapas_concluidas": false
+  }
+]
