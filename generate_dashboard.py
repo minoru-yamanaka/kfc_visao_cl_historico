@@ -881,6 +881,12 @@ html_content = f'''<!DOCTYPE html>
         </div>
       </div>
       <div class="header-actions">
+        <a href="https://kfcvisaoclhistorico.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Acessar versão online no Vercel">
+          🌐 Live Vercel
+        </a>
+        <a href="https://github.com/minoru-yamanaka/kfc_visao_cl_historico" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Ver código no GitHub">
+          🐙 GitHub
+        </a>
         <button class="btn btn-secondary" id="btnThemeToggle" title="Alternar Modo Escuro/Claro">
           <span id="themeIcon">🌙</span> Tema Escuro
         </button>
@@ -1123,6 +1129,16 @@ html_content = f'''<!DOCTYPE html>
     </section>
 
   </main>
+
+  <!-- Rodapé Institucional -->
+  <footer style="max-width: 1700px; margin: 40px auto 0; padding: 24px; text-align: center; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 13px;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 8px;">
+      <a href="https://kfcvisaoclhistorico.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--kfc-red); font-weight: 700; text-decoration: none;">🌐 KFC Expansão 2026 (Live Vercel)</a>
+      <span>•</span>
+      <a href="https://github.com/minoru-yamanaka/kfc_visao_cl_historico" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 600; text-decoration: none;">🐙 Repositório GitHub</a>
+    </div>
+    <p>KFC 2026 — Roadmap de Expansão | Monitoramento Executivo de Implantação e Prazos</p>
+  </footer>
 
   <!-- Tooltip Flutuante -->
   <div id="customTooltip" class="custom-tooltip"></div>

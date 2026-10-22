@@ -1,6 +1,12 @@
 # 🍗 KFC 2026 — Roadmap de Expansão
 
+[![Vercel Live](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel)](https://kfcvisaoclhistorico.vercel.app/)
+[![GitHub repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/minoru-yamanaka/kfc_visao_cl_historico)
+
 Dashboard executivo de gerenciamento de projetos com **gráfico de Gantt horizontal empilhado** para monitoramento da evolução dos dias acumulados por shopping e praça de expansão no pipeline KFC Brasil 2026.
+
+🔗 **Acesso Online (Produção):** [https://kfcvisaoclhistorico.vercel.app/](https://kfcvisaoclhistorico.vercel.app/)  
+🐙 **Código no GitHub:** [https://github.com/minoru-yamanaka/kfc_visao_cl_historico](https://github.com/minoru-yamanaka/kfc_visao_cl_historico)
 
 ---
 
@@ -25,19 +31,23 @@ O monitoramento divide cada projeto em 4 etapas cronológicas consecutivas com a
 
 ## 🚀 Como Rodar e Visualizar
 
-### 1. Dashboard Web Interativo (`index.html`)
-Abra o arquivo diretamente no navegador com um duplo clique ou execute no terminal:
+### 1. Acesso Web Online
+Acesse diretamente via Vercel:  
+👉 [https://kfcvisaoclhistorico.vercel.app/](https://kfcvisaoclhistorico.vercel.app/)
+
+### 2. Dashboard Local (`index.html`)
+Abra o arquivo localmente no navegador com um duplo clique ou execute no terminal:
 ```powershell
 Start-Process index.html
 ```
 * **Recursos:** Filtro dinâmico por formato (FC, FS, IL), filtro por nível de risco, alternância entre visualização empilhada e marco zero alinhado no contrato, modo escuro/claro e modal de auditoria por shopping.
 
-### 2. Gráfico Estático em Imagem de Alta Definição (`kfc_gantt_roadmap_2026.png`)
+### 3. Gráfico Estático em Imagem de Alta Definição (`kfc_gantt_roadmap_2026.png`)
 ```powershell
 Start-Process kfc_gantt_roadmap_2026.png
 ```
 
-### 3. Planilha Formatada (`KFC_2026_Roadmap_Dashboard.xlsx`)
+### 4. Planilha Formatada no Excel (`KFC_2026_Roadmap_Dashboard.xlsx`)
 ```powershell
 Start-Process KFC_2026_Roadmap_Dashboard.xlsx
 ```
